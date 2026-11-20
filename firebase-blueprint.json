@@ -1,0 +1,103 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User preferences, selected theme, playback settings, and active equalizer profile synced across devices.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "description": "Firebase Auth UID of the owner." },
+        "displayName": { "type": "string", "description": "Display name shown in profile and cloud sync header." },
+        "selectedTheme": {
+          "type": "string",
+          "enum": ["LIQUID_GLASS", "OBSIDIAN_AMOLED", "AURORA_NORD", "WARM_VINYL"],
+          "description": "Active visual theme; defaults to LIQUID_GLASS."
+        },
+        "offlineModeEnabled": { "type": "boolean", "description": "Whether strict offline mode is toggled on." },
+        "gaplessEnabled": { "type": "boolean", "description": "Whether gapless playback is enabled." },
+        "hiResOutputEnabled": { "type": "boolean", "description": "Whether 32-bit float Hi-Res audio output is preferred." },
+        "activeEqPresetId": { "type": "string", "description": "ID of the currently active equalizer preset." },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Server timestamp on creation (FieldValue.serverTimestamp())." },
+        "updatedAt": { "type": "string", "format": "date-time", "description": "Server timestamp on update (FieldValue.serverTimestamp())." }
+      },
+      "required": ["userId", "displayName", "selectedTheme", "offlineModeEnabled", "gaplessEnabled", "hiResOutputEnabled", "activeEqPresetId", "createdAt", "updatedAt"]
+    },
+    "Playlist": {
+      "title": "Playlist",
+      "description": "User-organized playlist with ordered track IDs and offline pinning status.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "description": "Owner UID." },
+        "name": { "type": "string", "description": "Playlist name." },
+        "description": { "type": "string", "description": "Short playlist description." },
+        "coverKey": { "type": "string", "description": "Artwork key for playlist cover." },
+        "trackIds": { "type": "array", "description": "Ordered list of track IDs (max 200)." },
+        "offlinePinned": { "type": "boolean", "description": "Whether playlist is pinned for offline playback." },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Server timestamp on creation." },
+        "updatedAt": { "type": "string", "format": "date-time", "description": "Server timestamp on update." }
+      },
+      "required": ["userId", "name", "description", "coverKey", "trackIds", "offlinePinned", "createdAt", "updatedAt"]
+    },
+    "AudioTrack": {
+      "title": "AudioTrack",
+      "description": "Track metadata including high-resolution format specs, favorite state, and offline availability.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "description": "Owner UID." },
+        "title": { "type": "string", "description": "Track title." },
+        "artist": { "type": "string", "description": "Artist name." },
+        "album": { "type": "string", "description": "Album name." },
+        "durationMs": { "type": "integer", "description": "Track duration in milliseconds." },
+        "formatBadge": { "type": "string", "description": "Human-readable Hi-Res badge such as WAV 24-bit / 48 kHz." },
+        "sampleRateHz": { "type": "integer", "description": "Audio sample rate in Hz." },
+        "bitDepth": { "type": "integer", "description": "Audio bit depth (16, 24, 32)." },
+        "codec": { "type": "string", "description": "Codec identifier (WAV, FLAC, ALAC, OPUS, OGG, AAC, MP3, AIFF)." },
+        "sourceType": { "type": "string", "enum": ["BUNDLED_HIRES", "LOCAL_DEVICE"], "description": "Where the local audio file is sourced from." },
+        "localFileName": { "type": "string", "description": "Raw resource key or local cached filename." },
+        "coverKey": { "type": "string", "description": "Artwork key." },
+        "favorite": { "type": "boolean", "description": "Favorite flag." },
+        "offlineAvailable": { "type": "boolean", "description": "Whether audio file is cached locally for offline playback." },
+        "playCount": { "type": "integer", "description": "Number of times played." },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Server timestamp on creation." },
+        "updatedAt": { "type": "string", "format": "date-time", "description": "Server timestamp on update." }
+      },
+      "required": ["userId", "title", "artist", "album", "durationMs", "formatBadge", "sampleRateHz", "bitDepth", "codec", "sourceType", "localFileName", "coverKey", "favorite", "offlineAvailable", "playCount", "createdAt", "updatedAt"]
+    },
+    "EqPreset": {
+      "title": "EqPreset",
+      "description": "10-band advanced equalizer and DSP preset synced to cloud.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "description": "Owner UID." },
+        "name": { "type": "string", "description": "Preset name." },
+        "bandGainsDb": { "type": "array", "description": "10 band gains in dB (-12.0 to +12.0)." },
+        "bassBoostStrength": { "type": "integer", "description": "Bass boost strength 0..1000." },
+        "virtualizerStrength": { "type": "integer", "description": "Spatial virtualizer strength 0..1000." },
+        "preampDb": { "type": "number", "description": "Preamp gain in dB (-12.0 to +12.0)." },
+        "loudnessGainMb": { "type": "integer", "description": "Loudness enhancer gain 0..2000 mB." },
+        "reverbPreset": { "type": "integer", "description": "Reverb preset index 0..6." },
+        "enabled": { "type": "boolean", "description": "Whether EQ processing is active." },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Server timestamp on creation." },
+        "updatedAt": { "type": "string", "format": "date-time", "description": "Server timestamp on update." }
+      },
+      "required": ["userId", "name", "bandGainsDb", "bassBoostStrength", "virtualizerStrength", "preampDb", "loudnessGainMb", "reverbPreset", "enabled", "createdAt", "updatedAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/UserProfile" },
+      "description": "User preferences, theme, and playback settings document."
+    },
+    "/users/{userId}/playlists/{playlistId}": {
+      "schema": { "$ref": "#/entities/Playlist" },
+      "description": "User playlists with ordered track IDs."
+    },
+    "/users/{userId}/tracks/{trackId}": {
+      "schema": { "$ref": "#/entities/AudioTrack" },
+      "description": "User music library metadata and offline availability flags."
+    },
+    "/users/{userId}/eq_presets/{presetId}": {
+      "schema": { "$ref": "#/entities/EqPreset" },
+      "description": "User 10-band equalizer and DSP presets."
+    }
+  }
+}

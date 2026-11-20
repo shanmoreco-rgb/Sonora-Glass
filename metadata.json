@@ -1,0 +1,6 @@
+{
+  "name": "Sonora",
+  "description": "Reproductor de música de alta resolución con temas Liquid Glass, ecualizador avanzado, listas personalizadas, modo offline y sincronización en la nube.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
