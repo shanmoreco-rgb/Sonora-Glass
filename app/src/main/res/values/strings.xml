@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Sonora</string>
+    <string name="tagline_hi_res">Audio de Alta Resolución • Liquid Glass</string>
+    <string name="auth_title">Sonora Hi-Res</string>
+    <string name="auth_subtitle">Reproductor audiófilo con ecualizador de 10 bandas, modo offline y sincronización en la nube.</string>
+    <string name="sign_in_google">Iniciar sesión con Google</string>
+    <string name="nav_library">Biblioteca</string>
+    <string name="nav_playlists">Listas</string>
+    <string name="nav_equalizer">Ecualizador</string>
+    <string name="nav_settings">Temas</string>
+    <string name="import_audio">Importar Hi-Res</string>
+    <string name="offline_mode">Modo Offline</string>
+    <string name="cloud_synced">Nube Sincronizada</string>
+    <string name="create_playlist">Nueva lista</string>
+    <string name="save_preset">Guardar perfil</string>
+    <string name="sign_out">Cerrar sesión</string>
+</resources>

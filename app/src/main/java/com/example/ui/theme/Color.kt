@@ -1,0 +1,60 @@
+package com.example.ui.theme
+
+import androidx.compose.ui.graphics.Color
+
+// --- 1. LIQUID GLASS (Default Theme) ---
+val LiquidBgTop = Color(0xFF050E22)
+val LiquidBgMid = Color(0xFF0B2242)
+val LiquidBgBottom = Color(0xFF071329)
+val LiquidOrbCyan = Color(0xFF38E8FF)
+val LiquidOrbViolet = Color(0xFF8A70FF)
+val LiquidOrbTeal = Color(0xFF17C3B2)
+val LiquidGlassFill = Color(0x26FFFFFF)
+val LiquidGlassElevated = Color(0x38D9F2FF)
+val LiquidBorderStart = Color(0x99FFFFFF)
+val LiquidBorderEnd = Color(0x265CE1E6)
+val LiquidPrimary = Color(0xFF66F0FF)
+val LiquidSecondary = Color(0xFFB39DFF)
+val LiquidTextPrimary = Color(0xFFF3F8FF)
+val LiquidTextSecondary = Color(0xFFB5CCE6)
+
+// --- 2. OBSIDIAN AMOLED ---
+val AmoledBg = Color(0xFF000000)
+val AmoledSurface = Color(0xFF0D0F14)
+val AmoledElevated = Color(0xFF161922)
+val AmoledOrbMint = Color(0xFF00F5A0)
+val AmoledOrbCyan = Color(0xFF00D9F5)
+val AmoledPrimary = Color(0xFF00F5A0)
+val AmoledSecondary = Color(0xFF00D9F5)
+val AmoledTextPrimary = Color(0xFFF6F9FC)
+val AmoledTextSecondary = Color(0xFF9AA7B8)
+
+// --- 3. AURORA NORD (Daylight Frosted Glass) ---
+val NordBgTop = Color(0xFFE9F2FA)
+val NordBgMid = Color(0xFFDCEBF7)
+val NordBgBottom = Color(0xFFEFF5FC)
+val NordOrbBlue = Color(0xFF68B6FF)
+val NordOrbLavender = Color(0xFFA799FF)
+val NordGlassFill = Color(0xB8FFFFFF)
+val NordGlassElevated = Color(0xDEFFFFFF)
+val NordBorderStart = Color(0xFFFFFFFF)
+val NordBorderEnd = Color(0x5570A4D8)
+val NordPrimary = Color(0xFF0066CC)
+val NordSecondary = Color(0xFF5D46E8)
+val NordTextPrimary = Color(0xFF0E1B2E)
+val NordTextSecondary = Color(0xFF475C78)
+
+// --- 4. WARM VINYL ---
+val VinylBgTop = Color(0xFF140D09)
+val VinylBgMid = Color(0xFF231610)
+val VinylBgBottom = Color(0xFF100A07)
+val VinylOrbAmber = Color(0xFFFF9F43)
+val VinylOrbRose = Color(0xFFE06D53)
+val VinylGlassFill = Color(0x28FFF0E0)
+val VinylGlassElevated = Color(0x3BFFDFC2)
+val VinylBorderStart = Color(0x88FFD9B3)
+val VinylBorderEnd = Color(0x26FF9F43)
+val VinylPrimary = Color(0xFFFFB454)
+val VinylSecondary = Color(0xFFE8846B)
+val VinylTextPrimary = Color(0xFFFCF3E8)
+val VinylTextSecondary = Color(0xFFCBB19A)

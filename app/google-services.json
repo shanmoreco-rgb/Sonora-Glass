@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "9553726792",
+    "project_id": "com-aistudio-sonoramusic-7559a",
+    "storage_bucket": "com-aistudio-sonoramusic-7559a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:9553726792:android:f8c8654a8d11339dfb777d",
+        "android_client_info": {
+          "package_name": "com.aistudio.sonoramusic.vqmwrt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "9553726792-9kkts7dev5gilel3lku2l0nmom8bstka.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.aistudio.sonoramusic.vqmwrt",
+            "certificate_hash": "2adbba019175d4a8ef82b4f90ccc0b551159b09b"
+          }
+        },
+        {
+          "client_id": "9553726792-9gpbamaevka4pft95kjd82nbplfd28f0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeAfRK_kVEe3w6t87e7FGXsoc-aPbR1ds"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "9553726792-9gpbamaevka4pft95kjd82nbplfd28f0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
